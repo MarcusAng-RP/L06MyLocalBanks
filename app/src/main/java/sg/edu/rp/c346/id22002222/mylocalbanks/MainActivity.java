@@ -3,9 +3,11 @@ package sg.edu.rp.c346.id22002222.mylocalbanks;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -109,6 +111,22 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
+            else if (id == R.id.favourite) {
+                int color = tvDBS.getCurrentTextColor();
+                //Log.d("mytag", "" + color);
+                if (color == -65536) {
+                    //Log.d("mytag", "Toggle1");
+                    tvDBS.setTextColor(Color.parseColor("#000000"));
+                } else {
+                    //Log.d("mytag", "Toggle2");
+                    tvDBS.setTextColor(Color.parseColor("#FF0000"));
+                }
+
+
+
+                return true;
+            }
+
         }
 
         if(wordClicked.equalsIgnoreCase("OCBC")) {
@@ -122,6 +140,22 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getString(R.string.OCBCPhone)));
 
                 startActivity(intentCall);
+                return true;
+            }
+
+            else if (id == R.id.favourite) {
+                int color = tvOCBC.getCurrentTextColor();
+                //Log.d("mytag", "" + color);
+                if (color == -65536) {
+                    //Log.d("mytag", "Toggle1");
+                    tvOCBC.setTextColor(Color.parseColor("#000000"));
+                } else {
+                    //Log.d("mytag", "Toggle2");
+                    tvOCBC.setTextColor(Color.parseColor("#FF0000"));
+                }
+
+
+
                 return true;
             }
 
@@ -140,7 +174,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentCall);
                 return true;
             }
-        
+            else if (id == R.id.favourite) {
+                int color = tvUOB.getCurrentTextColor();
+                Log.d("mytag", "" + color);
+                if (color == -65536) {
+                    Log.d("mytag", "Toggle1");
+                    tvUOB.setTextColor(Color.parseColor("#000000"));
+                } else {
+                    Log.d("mytag", "Toggle2");
+                    tvUOB.setTextColor(Color.parseColor("#FF0000"));
+                }
+
+
+
+                return true;
+            }
 
         }
             return super.onContextItemSelected(item);
